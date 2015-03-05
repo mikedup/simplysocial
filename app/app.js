@@ -11,6 +11,16 @@ angular.module('simplysocial', ['ngRoute', 'posts', 'users'])
       templateUrl: '/app/errors/404.html'
     });
   } 
+])
+
+.controller('HeaderCtrl', [
+  '$scope',
+  function($scope) {
+    $scope.user = {
+      name: 'Jessica Tuan',
+      photo: '/img/user_tuan.jpg'
+    }
+  }
 ]);
 
 }(window));
