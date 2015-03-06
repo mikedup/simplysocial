@@ -9,8 +9,12 @@ angular.module('users')
   'PostsService',
   function($scope, $routeParams, usersService, postsService) {
     var user = $routeParams.username;
+    var userPosts = postsService.collectionByUser(user);
+    var userLikes = postsService.collectionUserLikes(user);
+
     $scope.user = usersService.get(user);
-    $scope.posts = postsService.collectionByUser(user);
+    $scope.posts = userPosts.concat(userLikes);
+
   }
 ]);
 
