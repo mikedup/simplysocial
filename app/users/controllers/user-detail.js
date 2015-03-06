@@ -1,4 +1,4 @@
-(function(angular, undefined){'use strict';
+(function (angular) { 'use strict';
 
 angular.module('users')
 
@@ -7,7 +7,7 @@ angular.module('users')
   '$routeParams',
   'UsersService',
   'PostsService',
-  function($scope, $routeParams, usersService, postsService) {
+  function ($scope, $routeParams, usersService, postsService) {
     var user = $routeParams.username;
     var userPosts = postsService.collectionByUser(user);
     var userLikes = postsService.collectionUserLikes(user);

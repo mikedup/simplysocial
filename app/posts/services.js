@@ -1,10 +1,10 @@
-(function(angular, undefined){'use strict';
+(function (angular) { 'use strict';
 
 angular.module('posts')
 
 .factory('PostsService', [
   '$filter',
-  function() {
+  function () {
     var service = {};
     var posts = [
       {
@@ -105,14 +105,14 @@ angular.module('posts')
       }
     ];
 
-    service.collection = function() {
+    service.collection = function () {
       return posts;
     },
 
-    service.collectionByUser = function(id) {
+    service.collectionByUser = function (id) {
       var userPosts= [];
 
-      angular.forEach(posts, function(post) {
+      angular.forEach(posts, function (post) {
         if (post.user.username === id) {
           this.push(post);
         }
@@ -121,11 +121,11 @@ angular.module('posts')
       return userPosts;
     },
 
-    service.collectionUserLikes = function(id) {
+    service.collectionUserLikes = function (id) {
       var userLikes= [];
 
-      angular.forEach(posts, function(post) {
-        angular.forEach(post.likes, function(like) {
+      angular.forEach(posts, function (post) {
+        angular.forEach(post.likes, function (like) {
           if (like.user === id) {
 
             // add flag to identify post as liked

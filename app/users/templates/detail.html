@@ -1,5 +1,7 @@
 <img ng-src="{{ user.photo }}">
-<p>{{ user.name }}</p>
+<h2>{{ user.name }}</h2>
+<p>{{ user.bio }}</p>
+<a href="http://{{ user.website }}">{{ user.website }}</a>
 
 <h2>Feed</h2>
 <div class="post" ng-repeat="post in posts">
