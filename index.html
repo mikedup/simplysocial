@@ -10,9 +10,10 @@
 </head>
 <body ng-cloak>
   <header ng-controller="HeaderCtrl">
-    <h1>Simply Social</h1>
+    <a href="/#/"><h1>Simply Social</h1></a>
 
     <img ng-src="{{ user.photo }}">
+    <a href="/#/users/{{ user.username }}">Profile</a>
   </header>
 
   <div ng-view></div>
@@ -37,11 +38,14 @@
 
 <!-- Controllers -->
 <script src="/app/posts/controllers/posts-list.js"></script>
+<script src="/app/users/controllers/user-detail.js"></script>
 
 <!-- Routes -->
 <script src="/app/posts/routes.js"></script>
+<script src="/app/users/routes.js"></script>
 
 <!-- Services -->
 <script src="/app/posts/services.js"></script>
+<script src="/app/users/services.js"></script>
 </body>
 </html>

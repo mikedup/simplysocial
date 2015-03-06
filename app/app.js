@@ -17,6 +17,7 @@ angular.module('simplysocial', ['ngRoute', 'posts', 'users'])
   '$scope',
   function($scope) {
     $scope.user = {
+      username: 'jessicatuan',
       name: 'Jessica Tuan',
       photo: '/img/user_tuan.jpg'
     }
