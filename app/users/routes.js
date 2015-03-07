@@ -10,6 +10,11 @@ angular.module('users')
       templateUrl: '/app/users/templates/detail.html',
       controller: 'UserDetailCtrl'
     });
+     $routeProvider.when('/users/:username/settings', {
+      title: 'User Settings',
+      templateUrl: '/app/users/templates/settings.html',
+      controller: 'UserDetailCtrl'
+    });
   }
 ]);
 
