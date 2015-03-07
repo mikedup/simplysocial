@@ -3,29 +3,41 @@
 <p>{{ user.bio }}</p>
 <a href="http://{{ user.website }}">{{ user.website }}</a>
 
-<h2>Feed</h2>
-<div class="post" ng-repeat="post in posts">
-  <img ng-if="post.user.photo" ng-src="{{ post.user.photo }}">
-  <p>{{ post.user.name }}</p>
-  <p ng-bind-html="post.text"></p>
-  <img ng-if="post.photo" ng-src="{{ post.photo }}">
-  <p>{{ post.posted_time }}</p>
-  <small ng-show="post.likedByUser">Liked!</small>
-  <hr>
-</div> 
+<nav>
+  <a href="/#/users/{{ user.username }}" ng-class="{ 'active': !currentTab }">Jessica's Feed</a>
+  <a href="/#/users/{{ user.username }}/followers" ng-class="{ 'active': currentTab === 'followers' }">{{ user.followers.length }} Followers</a>
+  <a href="/#/users/{{ user.username }}/following" ng-class="{ 'active': currentTab === 'following' }">{{ user.following.length }} Following</a>
+</nav>
 
-<h2>Followers</h2>
-<div class="user" ng-repeat="follower in followers">
-  <img ng-if="follower.photo" ng-src="{{ follower.photo }}">
-  <p>{{ follower.name }}</p>
-  <hr>
-</div> 
+<div ng-show="!currentTab">
+  <h2>Feed</h2>
+  <div class="post" ng-repeat="post in posts">
+    <img ng-if="post.user.photo" ng-src="{{ post.user.photo }}">
+    <p>{{ post.user.name }}</p>
+    <p ng-bind-html="post.text"></p>
+    <img ng-if="post.photo" ng-src="{{ post.photo }}">
+    <p>{{ post.posted_time }}</p>
+    <small ng-show="post.likedByUser">Liked!</small>
+    <hr>
+  </div> 
+</div>
 
-<h2>Following</h2>
-<div class="user" ng-repeat="user in following">
-  <img ng-if="user.photo" ng-src="{{ user.photo }}">
-  <p>{{ user.name }}</p>
-  <hr>
+<div ng-show="currentTab === 'followers'">
+  <h2>Followers</h2>
+  <div class="user" ng-repeat="follower in followers">
+    <img ng-if="follower.photo" ng-src="{{ follower.photo }}">
+    <p>{{ follower.name }}</p>
+    <hr>
+  </div> 
+</div>
+
+<div ng-show="currentTab === 'following'">
+  <h2>Following</h2>
+  <div class="user" ng-repeat="user in following">
+    <img ng-if="user.photo" ng-src="{{ user.photo }}">
+    <p>{{ user.name }}</p>
+    <hr>
+  </div>
 </div> 
 
 

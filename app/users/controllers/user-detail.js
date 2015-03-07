@@ -5,9 +5,10 @@ angular.module('users')
 .controller('UserDetailCtrl', [
   '$scope',
   '$routeParams',
+  '$location',
   'UsersService',
   'PostsService',
-  function ($scope, $routeParams, usersService, postsService) {
+  function ($scope, $routeParams, $location, usersService, postsService) {
     // User
     var user = $routeParams.username;
     $scope.user = usersService.get(user);
@@ -20,6 +21,12 @@ angular.module('users')
     // Followers and Following
     $scope.followers = usersService.configureUsers($scope.user.followers);
     $scope.following = usersService.configureUsers($scope.user.following);
+
+    // Current tab
+    var url = $location.url();
+    $scope.currentTab = url.split('users/')[1].split('/')[1];
+
+    console.log($scope.currentTab);
   }
 ]);
 

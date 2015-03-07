@@ -10,9 +10,19 @@ angular.module('users')
       templateUrl: '/app/users/templates/detail.html',
       controller: 'UserDetailCtrl'
     });
-     $routeProvider.when('/users/:username/settings', {
+    $routeProvider.when('/users/:username/settings', {
       title: 'User Settings',
       templateUrl: '/app/users/templates/settings.html',
+      controller: 'UserDetailCtrl'
+    });
+    $routeProvider.when('/users/:username/followers', {
+      title: 'User Followers',
+      templateUrl: '/app/users/templates/detail.html',
+      controller: 'UserDetailCtrl'
+    });
+    $routeProvider.when('/users/:username/following', {
+      title: 'User Following',
+      templateUrl: '/app/users/templates/detail.html',
       controller: 'UserDetailCtrl'
     });
   }
