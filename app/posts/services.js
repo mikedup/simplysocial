@@ -4,10 +4,11 @@ angular.module('posts')
 
 .factory('PostsService', [
   '$filter',
-  function () {
+  function ($filter) {
     var service = {};
     var posts = [
       {
+        "id": "928ab8d7-e6c2-47ba-9a8c-92e4b38481b3",
         "user": {
           "username": "samsoffes",
           "name": "Sam Soffes",
@@ -23,6 +24,7 @@ angular.module('posts')
         ]
       },
       {
+        "id": "cb269c46-53fa-43cf-b2b3-6877bc8da660",
         "user": {
           "username": "megrobichaud",
           "name": "Meg Robichaud",
@@ -34,6 +36,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "f495aaf2-a536-4657-88f1-5f22fe5fa4ce",
         "user": {
           "username": "keremsuer",
           "name": "Kerem Suer",
@@ -45,6 +48,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "fc1fefe9-88b3-4ac9-aea9-6c4b94adb556",
         "user": {
           "username": "liangshi",
           "name": "Liang Shi",
@@ -56,6 +60,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "51526dad-0e63-41a8-be87-dd3dd3a566dc",
         "user": {
           "username": "jessicatuan",
           "name": "Jessica Tuan",
@@ -67,6 +72,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "ad941be0-67cd-4977-8919-aa844d5ebb3c",
         "user": {
           "username": "jessicatuan",
           "name": "Jessica Tuan",
@@ -78,6 +84,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "39587009-c79f-4cff-ad94-1112af2324e3",
         "user": {
           "username": "jessicatuan",
           "name": "Jessica Tuan",
@@ -89,6 +96,7 @@ angular.module('posts')
         "likes": []
       },
       {
+        "id": "b6e83b20-3650-4a50-8675-f10f790a1fd5",
         "user": {
           "username": "pallavigupta",
           "name": "Pallavi Gupta",
@@ -105,39 +113,43 @@ angular.module('posts')
       }
     ];
 
-    service.collection = function () {
-      return posts;
-    },
+    service.get = function (postId) {
+      // Simulate api 
+      var post = $filter('filter')(posts, {id: postId})[0];
 
-    service.collectionByUser = function (id) {
-      var userPosts= [];
+      return post;
+    }
 
-      angular.forEach(posts, function (post) {
-        if (post.user.username === id) {
-          this.push(post);
-        }
-      }, userPosts);
-      
-      return userPosts;
-    },
+    service.collection = function (userId) {
+      if (userId) {
+        var userPosts = [];
 
-    service.collectionUserLikes = function (id) {
-      var userLikes= [];
-
-      angular.forEach(posts, function (post) {
-        angular.forEach(post.likes, function (like) {
-          if (like.user === id) {
-
-            // add flag to identify post as liked
-            post.likedByUser = true;
-
+        angular.forEach(posts, function (post) {
+          if (post.user.username === userId) {
             this.push(post);
           }
-        }, userLikes)
-        
-      });
-      
-      return userLikes;
+        }, userPosts);
+
+        return userPosts;
+      }
+
+      return posts;
+    }
+
+    service.configurePosts = function (postIds) {
+      var posts = [];
+      var self = this;
+
+      angular.forEach(postIds, function (postId) {
+        var post = self.get(postId);
+
+        // add flag to identify post as liked in the feed
+        post.likedByUser = true;
+
+        this.push(post);
+      }, posts);
+
+      return posts;
     }
 
     return service;

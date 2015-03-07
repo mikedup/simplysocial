@@ -14,4 +14,19 @@
   <hr>
 </div> 
 
+<h2>Followers</h2>
+<div class="user" ng-repeat="follower in followers">
+  <img ng-if="follower.photo" ng-src="{{ follower.photo }}">
+  <p>{{ follower.name }}</p>
+  <hr>
+</div> 
+
+<h2>Following</h2>
+<div class="user" ng-repeat="user in following">
+  <img ng-if="user.photo" ng-src="{{ user.photo }}">
+  <p>{{ user.name }}</p>
+  <hr>
+</div> 
+
+
 

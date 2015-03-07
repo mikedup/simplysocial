@@ -8,13 +8,18 @@ angular.module('users')
   'UsersService',
   'PostsService',
   function ($scope, $routeParams, usersService, postsService) {
+    // User
     var user = $routeParams.username;
-    var userPosts = postsService.collectionByUser(user);
-    var userLikes = postsService.collectionUserLikes(user);
-
     $scope.user = usersService.get(user);
-    $scope.posts = userPosts.concat(userLikes);
 
+    // User feed 
+    var userPosts = postsService.collection(user);
+    var userLikedPosts = postsService.configurePosts($scope.user.likes);
+    $scope.posts = userPosts.concat(userLikedPosts);
+
+    // Followers and Following
+    $scope.followers = usersService.configureUsers($scope.user.followers);
+    $scope.following = usersService.configureUsers($scope.user.following);
   }
 ]);
 

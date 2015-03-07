@@ -13,18 +13,29 @@ angular.module('users')
         "photo": "/img/user_tuan.jpg",
         "bio": "Designer and Developer living in San Diego, CA",
         "website": "jessicatuan.com",
-        "posts": [],
-        "likes": [],
-        "followers": [],
-        "following": []
+        "likes": [
+          "928ab8d7-e6c2-47ba-9a8c-92e4b38481b3",
+          "b6e83b20-3650-4a50-8675-f10f790a1fd5"
+        ],
+        "followers": [
+          "samsoffes",
+          "megrobichaud",
+          "keremsuer",
+          "liangshi",
+          "pallavigupta"
+        ],
+        "following": [
+          "samsoffes",
+          "megrobichaud",
+          "pallavigupta"
+        ]
       },
       {
-        "username": "samsoffees",
+        "username": "samsoffes",
         "name": "Sam Soffes",
         "photo": "/img/user_soffes.jpg",
         "bio": "",
         "website": "",
-        "posts": [],
         "likes": [],
         "followers": [],
         "following": []
@@ -35,7 +46,6 @@ angular.module('users')
         "photo": "/img/user_robichaud.jpg",
         "bio": "",
         "website": "",
-        "posts": [],
         "likes": [],
         "followers": [],
         "following": []
@@ -46,7 +56,6 @@ angular.module('users')
         "photo": "/img/user_suer.jpg",
         "bio": "",
         "website": "",
-        "posts": [],
         "likes": [],
         "followers": [],
         "following": []
@@ -57,7 +66,6 @@ angular.module('users')
         "photo": "/img/user_shi.jpg",
         "bio": "",
         "website": "",
-        "posts": [],
         "likes": [],
         "followers": [],
         "following": []
@@ -68,7 +76,6 @@ angular.module('users')
         "photo": "/img/user_gupta.jpg",
         "bio": "",
         "website": "",
-        "posts": [],
         "likes": [],
         "followers": [],
         "following": []
@@ -80,6 +87,18 @@ angular.module('users')
       var user = $filter('filter')(users, {username: id})[0];
 
       return user;
+    }
+
+    service.configureUsers = function (userIds) {
+      var users = [];
+      var self = this;
+
+      angular.forEach(userIds, function (userId) {
+        var user = self.get(userId);
+        this.push(user);
+      }, users);
+
+      return users;
     }
 
     return service;
