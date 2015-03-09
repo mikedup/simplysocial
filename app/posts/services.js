@@ -6,6 +6,8 @@ angular.module('posts')
   '$filter',
   function ($filter) {
     var service = {};
+
+    // Mock data
     var posts = [
       {
         "id": "928ab8d7-e6c2-47ba-9a8c-92e4b38481b3",
@@ -16,11 +18,10 @@ angular.module('posts')
         },
         "text": "How to Get Inspired: the Right Way - Designmodo <a href>link</a>",
         "photo": "",
+        "video": "",
         "posted_time": "3m",
         "likes": [
-          {
-            "user": "jessicatuan"
-          }
+          "jessicatuan"
         ]
       },
       {
@@ -32,6 +33,7 @@ angular.module('posts')
         },
         "text": "My view this morning is simply beautiful... <link>",
         "photo": "/img/post_ocean.jpg",
+        "video": "",
         "posted_time": "25m",
         "likes": []
       },
@@ -44,6 +46,7 @@ angular.module('posts')
         },
         "text": "8 Apps to Turn Your Pipe Dreams Into Prototypes <link>",
         "photo": "",
+        "video": "",
         "posted_time": "50m",
         "likes": []
       },
@@ -56,6 +59,7 @@ angular.module('posts')
         },
         "text": "How to get animations out of your head. <link> Funny and useful",
         "photo": "",
+        "video": "",
         "posted_time": "1h",
         "likes": []
       },
@@ -68,6 +72,7 @@ angular.module('posts')
         },
         "text": "It's Monday. That means <a href>@happymonday</a> podcast time. <a href>bit.ly/1hxqkGO</a> Good stuff for web workers.",
         "photo": "",
+        "video": "",
         "posted_time": "3m",
         "likes": []
       },
@@ -80,6 +85,7 @@ angular.module('posts')
         },
         "text": "The theme song of small creative shops around the world. <a href>http://goo.gl/eFUAzP</a>",
         "photo": "",
+        "video": "",
         "posted_time": "1h",
         "likes": []
       },
@@ -92,6 +98,7 @@ angular.module('posts')
         },
         "text": "Nothing like a walk on the beach to clear your mind",
         "photo": "/img/post_beach.jpg",
+        "video": "",
         "posted_time": "2h",
         "likes": []
       },
@@ -104,23 +111,23 @@ angular.module('posts')
         },
         "text": "Need some reading? 11 free ebooks for designers | Creative Bloq <a href>bit.ly/1hxqkGO</a> via <a href>@netmag</a>",
         "photo": "",
+        "video": "",
         "posted_time": "2h",
         "likes": [
-          {
-            "user": "jessicatuan"
-          }
+          "jessicatuan"
         ]
       }
     ];
 
     service.get = function (postId) {
-      // Simulate api 
+      // Mock api GET
       var post = $filter('filter')(posts, {id: postId})[0];
 
       return post;
     }
 
     service.collection = function (userId) {
+      // Mock api GET
       if (userId) {
         var userPosts = [];
 

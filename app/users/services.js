@@ -6,6 +6,8 @@ angular.module('users')
   '$filter', 
   function ($filter) {
     var service = {};
+
+    // Mock data
     var users = [
       {
         "username": "jessicatuan",
@@ -83,7 +85,7 @@ angular.module('users')
     ];
 
     service.get = function (id) {
-      // Simulate api 
+      // Mock api GET
       var user = $filter('filter')(users, {username: id})[0];
 
       return user;

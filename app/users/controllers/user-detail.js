@@ -25,8 +25,6 @@ angular.module('users')
     // Current tab
     var url = $location.url();
     $scope.currentTab = url.split('users/')[1].split('/')[1];
-
-    console.log($scope.currentTab);
   }
 ]);
 

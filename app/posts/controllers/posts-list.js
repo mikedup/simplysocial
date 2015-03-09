@@ -7,6 +7,8 @@ angular.module('posts')
   'PostsService',
   function ($scope, postsService) {
     $scope.posts = postsService.collection();
+
+    $scope.filter = 'all';
   }
 ]);
 
