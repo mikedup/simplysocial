@@ -84,23 +84,21 @@ angular.module('users')
       }
     ];
 
-    service.get = function (id) {
+    service.get = function (username) {
       // Mock api GET
-      var user = $filter('filter')(users, {username: id})[0];
+      var user = users.filter(function (user) {
+        return user.username === username;
+      })[0];
 
       return user;
     }
 
-    service.configureUsers = function (userIds) {
-      var users = [];
-      var self = this;
+    service.resolveUsers = function (usernames) {
+      var resolvedUsers = usernames.map(function (username) {
+        return this.get(username);
+      }.bind(this));
 
-      angular.forEach(userIds, function (userId) {
-        var user = self.get(userId);
-        this.push(user);
-      }, users);
-
-      return users;
+      return resolvedUsers;
     }
 
     return service;

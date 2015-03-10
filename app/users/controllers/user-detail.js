@@ -15,12 +15,16 @@ angular.module('users')
 
     // User feed 
     var userPosts = postsService.collection(user);
-    var userLikedPosts = postsService.configurePosts($scope.user.likes);
-    $scope.posts = userPosts.concat(userLikedPosts);
+    var userLikedPosts = postsService.resolvePosts($scope.user.likes); // resolve posts with post ids
+    var likes = userLikedPosts.map(function (post) { 
+      post.likedByUser = true; // add flag to identify posts as liked in the feed
+      return post;
+    });
+    $scope.posts = userPosts.concat(likes);
 
-    // Followers and Following
-    $scope.followers = usersService.configureUsers($scope.user.followers);
-    $scope.following = usersService.configureUsers($scope.user.following);
+    // Followers and Following - reolve users with usernames
+    $scope.followers = usersService.resolveUsers($scope.user.followers);
+    $scope.following = usersService.resolveUsers($scope.user.following);
 
     // Current tab
     var url = $location.url();
