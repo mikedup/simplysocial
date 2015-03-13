@@ -106,7 +106,6 @@ p {
   box-sizing: border-box;
   color: #fff;
   min-height: 63px;
-  padding: 1rem 0.75rem 0.75rem 0.75rem;
   position: fixed;
   top: 0;
   width: 100%;
@@ -121,7 +120,7 @@ p {
     background: url(../img/logo.png) left top no-repeat;
     background-size: 100%;
     display: inline-block;
-    margin: 0;
+    margin: 1rem 0 0.75rem 0;
     max-width: 138px;
   }
 
@@ -135,22 +134,59 @@ p {
 /* User Dropdown module */
 
 .dropdown {
-  float: right;
-  position: relative;
-}
-.dropdown__trigger {
+  background: url(../img/icon_chevron-down.png) right center no-repeat;
   cursor: pointer;
+  float: right;
+  padding: 1rem 18px 0.75rem 0;
+  position: relative;
 
   img {
     @include borderRadius(3px);
     max-width: 30px;
   }
+
+  &:hover {
+    .dropdown__menu {
+      display: block;
+    }
+  }
 }
 .dropdown__menu {
-  bottom: 0;
+  @include borderRadius(3px);
+  background-color: #fff;
   display: none;
+  top: 90%;
   position: absolute;
-  right: 0;
+  right: -17px;
+  width: 100px;
+
+  a {
+    border-top: 1px solid #ddd;
+    color: #6D7887;
+    display: block;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      color: #303d4f;
+    }
+
+    &:first-child {
+      border: none;
+    }
+  }
+
+  &:before {
+    border: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 15px;
+    top: -10px;
+    width: 0;
+  }
 }
 
 
