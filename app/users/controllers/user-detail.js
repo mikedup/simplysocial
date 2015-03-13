@@ -30,6 +30,10 @@ angular.module('users')
       if (likes.length) { return true };
     }
 
+    $scope.followUser = function (username) {
+      usersService.followUser(user, username);
+    }
+
     // Followers and Following - resolve users with usernames
     var followers = usersService.resolveUsers($scope.user.followers);
     var following = usersService.resolveUsers($scope.user.following);

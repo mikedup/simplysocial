@@ -136,6 +136,11 @@ angular.module('users')
       return resolvedUsers;
     }
 
+    service.followUser = function (username, newFollow) {
+      var user = this.get(username);
+      user.following.push(newFollow);
+    }
+
     return service;
   }
 ]);
