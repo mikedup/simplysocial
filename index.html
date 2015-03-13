@@ -14,15 +14,23 @@
     <div class="container">
       <a href="#/"><h1 class="logo">Simply Social</h1></a>
 
-      <div class="dropdown">
-        <img ng-src="{{ user.photo }}">
-        <nav class="dropdown__menu">
-          <a href="#/users/{{ user.username }}">Profile</a>
-          <a href="#/users/{{ user.username }}/followers">Followers</a>
-          <a href="#/users/{{ user.username }}/following">Following</a>
-          <a href="#/users/{{ user.username }}/settings">Settings</a>
-        </nav>
+      <div class="header-bar__controls">
+        <div class="dropdown">
+          <img ng-src="{{ user.photo }}">
+          <nav class="dropdown__menu">
+            <a href="#/users/{{ user.username }}">Profile</a>
+            <a href="#/users/{{ user.username }}/followers">Followers</a>
+            <a href="#/users/{{ user.username }}/following">Following</a>
+            <a href="#/users/{{ user.username }}/settings">Settings</a>
+          </nav>
+        </div>
+
+        <input class="search" />
+
+        <a ng-click="toggleModal()" class="create-post">Post Message</a>
       </div>
+
+      <ng-include src="'app/header-bar/templates/post-modal.html'"></ng-include>
     </div>
   </header>
 

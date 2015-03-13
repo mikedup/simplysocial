@@ -10,6 +10,12 @@ angular.module('headerBar')
       name: 'Jessica Tuan',
       photo: 'img/user_tuan.jpg'
     }
+
+    $scope.modalVisible = false;
+
+    $scope.toggleModal = function () {
+      $scope.modalVisible = !$scope.modalVisible;
+    }
   }
 ]);
 
