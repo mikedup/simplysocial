@@ -7,7 +7,7 @@ angular.module('posts')
   function ($routeProvider) {
     $routeProvider.when('/', {
       title: 'Posts',
-      templateUrl: '/app/posts/templates/list.html',
+      templateUrl: 'app/posts/templates/list.html',
       controller: 'PostsListCtrl'
     });
   }

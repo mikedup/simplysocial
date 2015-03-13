@@ -8,7 +8,7 @@ angular.module('headerBar')
     $scope.user = {
       username: 'jessicatuan',
       name: 'Jessica Tuan',
-      photo: '/img/user_tuan.jpg'
+      photo: 'img/user_tuan.jpg'
     }
   }
 ]);

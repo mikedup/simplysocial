@@ -24,7 +24,7 @@ angular.module('posts')
         "id": "cb269c46-53fa-43cf-b2b3-6877bc8da660",
         "username": "megrobichaud",
         "text": "My view this morning is simply beautiful... <a href=\"instagram.com/p/mV0PUrHRwQ/\">instagram.com/p/mV0PUrHRwQ/</a>",
-        "photo": "/img/post_ocean.jpg",
+        "photo": "img/post_ocean.jpg",
         "video": "",
         "posted_time": "25m",
         "likes": []
@@ -69,7 +69,7 @@ angular.module('posts')
         "id": "39587009-c79f-4cff-ad94-1112af2324e3",
         "username": "jessicatuan",
         "text": "Nothing like a walk on the beach to clear your mind",
-        "photo": "/img/post_beach.jpg",
+        "photo": "img/post_beach.jpg",
         "video": "",
         "posted_time": "2h",
         "likes": []

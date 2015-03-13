@@ -9,9 +9,9 @@
     </div>
    
     <nav class="billboard__tabs -user">
-      <a href="/#/users/{{ user.username }}" ng-class="{ '-active': !currentTab }">Jessica's Feed</a>
-      <a href="/#/users/{{ user.username }}/followers" ng-class="{ '-active': currentTab === 'followers' }">{{ user.followers.length }} Followers</a>
-      <a href="/#/users/{{ user.username }}/following" ng-class="{ '-active': currentTab === 'following' }">{{ user.following.length }} Following</a>
+      <a href="#/users/{{ user.username }}" ng-class="{ '-active': !currentTab }">Jessica's Feed</a>
+      <a href="#/users/{{ user.username }}/followers" ng-class="{ '-active': currentTab === 'followers' }">{{ user.followers.length }} Followers</a>
+      <a href="#/users/{{ user.username }}/following" ng-class="{ '-active': currentTab === 'following' }">{{ user.following.length }} Following</a>
     </nav>
   </div>
 </div>
@@ -19,19 +19,19 @@
 
 <div ng-if="!currentTab" class="container -posts">
   <div class="post" ng-repeat="post in posts">
-    <ng-include src="'/app/posts/templates/post.html'"></ng-include>
+    <ng-include src="'app/posts/templates/post.html'"></ng-include>
   </div> 
 </div>
 
 <div ng-if="currentTab === 'followers'" class="container -posts">
   <div class="follower" ng-repeat="user in followers">
-    <ng-include src="'/app/users/templates/follower.html'"></ng-include>
+    <ng-include src="'app/users/templates/follower.html'"></ng-include>
   </div> 
 </div>
 
 <div ng-if="currentTab === 'following'" class="container -posts">
   <div class="follower" ng-repeat="user in following">
-   <ng-include src="'/app/users/templates/follower.html'"></ng-include>
+   <ng-include src="'app/users/templates/follower.html'"></ng-include>
   </div>
 </div> 
 

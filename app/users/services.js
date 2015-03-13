@@ -12,7 +12,7 @@ angular.module('users')
       {
         "username": "jessicatuan",
         "name": "Jessica Tuan",
-        "photo": "/img/user_tuan.jpg",
+        "photo": "img/user_tuan.jpg",
         "bio": "Designer and Developer living in San Diego, CA",
         "website": "jessicatuan.com",
         "followers": [
@@ -31,7 +31,7 @@ angular.module('users')
       {
         "username": "samsoffes",
         "name": "Sam Soffes",
-        "photo": "/img/user_soffes.jpg",
+        "photo": "img/user_soffes.jpg",
         "bio": "",
         "website": "",
         "followers": [
@@ -48,7 +48,7 @@ angular.module('users')
       {
         "username": "megrobichaud",
         "name": "Meg Robichaud",
-        "photo": "/img/user_robichaud.jpg",
+        "photo": "img/user_robichaud.jpg",
         "bio": "",
         "website": "",
         "followers": [
@@ -65,7 +65,7 @@ angular.module('users')
       {
         "username": "keremsuer",
         "name": "Kerem Suer",
-        "photo": "/img/user_suer.jpg",
+        "photo": "img/user_suer.jpg",
         "bio": "",
         "website": "",
         "followers": [
@@ -83,7 +83,7 @@ angular.module('users')
       {
         "username": "liangshi",
         "name": "Liang Shi",
-        "photo": "/img/user_shi.jpg",
+        "photo": "img/user_shi.jpg",
         "bio": "",
         "website": "",
         "followers": [
@@ -101,7 +101,7 @@ angular.module('users')
       {
         "username": "pallavigupta",
         "name": "Pallavi Gupta",
-        "photo": "/img/user_gupta.jpg",
+        "photo": "img/user_gupta.jpg",
         "bio": "",
         "website": "",
         "followers": [
