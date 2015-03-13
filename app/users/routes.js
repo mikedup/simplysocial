@@ -13,7 +13,7 @@ angular.module('users')
     $routeProvider.when('/users/:username/settings', {
       title: 'User Settings',
       templateUrl: '/app/users/templates/settings.html',
-      controller: 'UserDetailCtrl'
+      controller: 'UserSettingsCtrl'
     });
     $routeProvider.when('/users/:username/followers', {
       title: 'User Followers',
