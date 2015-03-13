@@ -6,7 +6,7 @@ angular.module('simplysocial', ['ngRoute', 'posts', 'users', 'headerBar'])
   '$locationProvider', 
   '$routeProvider', 
   function ($locationProvider, $routeProvider) {
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
     $routeProvider.otherwise({
       templateUrl: '/app/errors/404.html'
     });
