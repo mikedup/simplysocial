@@ -15,10 +15,6 @@ angular.module('users')
         "photo": "/img/user_tuan.jpg",
         "bio": "Designer and Developer living in San Diego, CA",
         "website": "jessicatuan.com",
-        "likes": [
-          "928ab8d7-e6c2-47ba-9a8c-92e4b38481b3",
-          "b6e83b20-3650-4a50-8675-f10f790a1fd5"
-        ],
         "followers": [
           "samsoffes",
           "megrobichaud",
@@ -38,7 +34,6 @@ angular.module('users')
         "photo": "/img/user_soffes.jpg",
         "bio": "",
         "website": "",
-        "likes": [],
         "followers": [
           "megrobichaud",
           "keremsuer",
@@ -56,7 +51,6 @@ angular.module('users')
         "photo": "/img/user_robichaud.jpg",
         "bio": "",
         "website": "",
-        "likes": [],
         "followers": [
           "samsoffes",
           "keremsuer",
@@ -74,7 +68,6 @@ angular.module('users')
         "photo": "/img/user_suer.jpg",
         "bio": "",
         "website": "",
-        "likes": [],
         "followers": [
           "samsoffes",
           "megrobichaud",
@@ -93,7 +86,6 @@ angular.module('users')
         "photo": "/img/user_shi.jpg",
         "bio": "",
         "website": "",
-        "likes": [],
         "followers": [
           "samsoffes",
           "megrobichaud",
@@ -112,7 +104,6 @@ angular.module('users')
         "photo": "/img/user_gupta.jpg",
         "bio": "",
         "website": "",
-        "likes": [],
         "followers": [
           "samsoffes",
           "megrobichaud",

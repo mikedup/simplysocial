@@ -299,6 +299,11 @@ p {
       border-bottom: 4px solid $green;
       opacity: 1;
     }
+
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
   }
 
   &.-user {

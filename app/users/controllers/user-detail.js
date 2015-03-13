@@ -15,17 +15,20 @@ angular.module('users')
 
     // User feed 
     var userPosts = postsService.collection(user);
-    var userLikedPosts = postsService.resolvePosts($scope.user.likes); // resolve posts with post ids
-    var likes = userLikedPosts.map(function (post) { 
-      post.likedByUser = true; // add flag to identify posts as liked in the feed
-      return post;
-    });
-    var posts = userPosts.concat(likes);
+    var userLikedPosts = postsService.getLiked(user); 
+    var posts = userPosts.concat(userLikedPosts);
     $scope.posts = posts.map(function (post) {
       post.user = usersService.get(post.username); // resolve users with username
       return post;
     });
 
+    // Check if post is liked by user
+    $scope.isLikedByUser = function (postId) {
+      var likes = userLikedPosts.filter(function (post) {
+        return post.id === postId;
+      });
+      if (likes.length) { return true };
+    }
 
     // Followers and Following - resolve users with usernames
     var followers = usersService.resolveUsers($scope.user.followers);

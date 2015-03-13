@@ -109,6 +109,14 @@ angular.module('posts')
       return posts;
     }
 
+    service.getLiked = function (username) {
+      var likedPosts = posts.filter(function (post) {
+        return post.likes.indexOf(username) > -1;
+      });
+
+      return likedPosts;
+    }
+
     service.resolvePosts = function (postIds) {
       var resolvedPosts = postIds.map(function (postId) {
         return this.get(postId);
