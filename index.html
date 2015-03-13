@@ -5,24 +5,31 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/styles.css">
   <base href="/">
 </head>
 <body ng-cloak>
-  <header ng-controller="HeaderCtrl">
-    <a href="/#/"><h1>Simply Social</h1></a>
+  <header ng-controller="HeaderCtrl" class="header-bar">
+    <div class="container">
+      <a href="/#/"><h1 class="logo">Simply Social</h1></a>
 
-    <img ng-src="{{ user.photo }}">
-    <a href="/#/users/{{ user.username }}">Profile</a>
-    <a href="/#/users/{{ user.username }}/followers">Followers</a>
-    <a href="/#/users/{{ user.username }}/following">Following</a>
-    <a href="/#/users/{{ user.username }}/settings">Settings</a>
+      <div class="dropdown">
+        <a ng-click="" class="dropdown__trigger"><img ng-src="{{ user.photo }}"></a>
+        <nav class="dropdown__menu">
+          <a href="/#/users/{{ user.username }}">Profile</a>
+          <a href="/#/users/{{ user.username }}/followers">Followers</a>
+          <a href="/#/users/{{ user.username }}/following">Following</a>
+          <a href="/#/users/{{ user.username }}/settings">Settings</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
   <div ng-view></div>
 
   <footer>
-    <nav>
+    <nav class="container">
       <a href="">About Us</a>
       <a href="">Support</a>
       <a href="">Privacy</a>

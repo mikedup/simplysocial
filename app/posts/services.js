@@ -23,7 +23,7 @@ angular.module('posts')
       {
         "id": "cb269c46-53fa-43cf-b2b3-6877bc8da660",
         "username": "megrobichaud",
-        "text": "My view this morning is simply beautiful... <link>",
+        "text": "My view this morning is simply beautiful... <a href=\"instagram.com/p/mV0PUrHRwQ/\">instagram.com/p/mV0PUrHRwQ/</a>",
         "photo": "/img/post_ocean.jpg",
         "video": "",
         "posted_time": "25m",

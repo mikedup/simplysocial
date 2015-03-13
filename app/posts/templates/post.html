@@ -1,0 +1,17 @@
+<div class="row content">
+  <div class="user-photo">
+    <img ng-if="post.user.photo" ng-src="{{ post.user.photo }}"> 
+  </div>
+  <div class="post__body">
+    <header class="row">
+      <h3>{{ post.user.name }}</h3>
+      <span class="post-time">{{ post.posted_time }}</span>
+      <nav>
+        <a class="icon -reply" ng-click>Reply</a>
+        <a class="icon -heart" ng-click>Like</a>
+    </header>
+    <p ng-bind-html="post.text"></p>
+  </div>
+</div>
+<img ng-if="post.photo" ng-src="{{ post.photo }}" class="post__img">
+
