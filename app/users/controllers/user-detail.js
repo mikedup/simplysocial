@@ -22,15 +22,27 @@ angular.module('users')
     });
     var posts = userPosts.concat(likes);
     $scope.posts = posts.map(function (post) {
-      var user = usersService.get(post.username); // Resolve users with username
-      post.user = user;
+      post.user = usersService.get(post.username); // resolve users with username
       return post;
     });
 
 
-    // Followers and Following - reolve users with usernames
-    $scope.followers = usersService.resolveUsers($scope.user.followers);
-    $scope.following = usersService.resolveUsers($scope.user.following);
+    // Followers and Following - resolve users with usernames
+    var followers = usersService.resolveUsers($scope.user.followers);
+    var following = usersService.resolveUsers($scope.user.following);
+    $scope.followers = followers.map(function (user) {
+      user.posts = postsService.collection(user.username); // get user posts
+      return user;
+    });
+    $scope.following = following.map(function (user) {
+      user.posts = postsService.collection(user.username); // get user posts
+      return user;
+    })
+
+    // Check if user is following another user
+    $scope.isFollowing = function(username) {
+      if ($scope.user.following.indexOf(username) > -1) { return true };
+    }
 
     // Current tab
     var url = $location.url();

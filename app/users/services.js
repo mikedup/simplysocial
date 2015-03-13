@@ -39,8 +39,16 @@ angular.module('users')
         "bio": "",
         "website": "",
         "likes": [],
-        "followers": [],
-        "following": []
+        "followers": [
+          "megrobichaud",
+          "keremsuer",
+          "liangshi",
+          "pallavigupta"
+        ],
+        "following": [
+          "megrobichaud",
+          "pallavigupta"
+        ]
       },
       {
         "username": "megrobichaud",
@@ -49,8 +57,16 @@ angular.module('users')
         "bio": "",
         "website": "",
         "likes": [],
-        "followers": [],
-        "following": []
+        "followers": [
+          "samsoffes",
+          "keremsuer",
+          "liangshi",
+          "pallavigupta"
+        ],
+        "following": [
+          "samsoffes",
+          "pallavigupta"
+        ]
       },
       {
         "username": "keremsuer",
@@ -59,8 +75,17 @@ angular.module('users')
         "bio": "",
         "website": "",
         "likes": [],
-        "followers": [],
-        "following": []
+        "followers": [
+          "samsoffes",
+          "megrobichaud",
+          "liangshi",
+          "pallavigupta"
+        ],
+        "following": [
+          "samsoffes",
+          "megrobichaud",
+          "pallavigupta"
+        ]
       },
       {
         "username": "liangshi",
@@ -69,8 +94,17 @@ angular.module('users')
         "bio": "",
         "website": "",
         "likes": [],
-        "followers": [],
-        "following": []
+        "followers": [
+          "samsoffes",
+          "megrobichaud",
+          "keremsuer",
+          "pallavigupta"
+        ],
+        "following": [
+          "samsoffes",
+          "megrobichaud",
+          "pallavigupta"
+        ]
       },
       {
         "username": "pallavigupta",
@@ -79,8 +113,18 @@ angular.module('users')
         "bio": "",
         "website": "",
         "likes": [],
-        "followers": [],
-        "following": []
+        "followers": [
+          "samsoffes",
+          "megrobichaud",
+          "keremsuer",
+          "liangshi",
+          "pallavigupta"
+        ],
+        "following": [
+          "samsoffes",
+          "megrobichaud",
+          "pallavigupta"
+        ]
       }
     ];
 

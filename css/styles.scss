@@ -53,6 +53,10 @@ $green: #1BB187;
 
 /* Base styles */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: #6D7887;
   font-family: "Proxima Nova Regular";
@@ -64,6 +68,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 h3 {
   font-size: 1.15rem;
 }
@@ -71,6 +79,10 @@ h3 {
 a, a:link, a:visited {
   color: #bec3cc;
   text-decoration: none;
+
+  &:hover {
+    color: lighten(#bec3cc, 8);
+  }
 }
 
 p {
@@ -87,6 +99,7 @@ p {
   clear: both;
   width: 100%;
 }
+
 .container {
   margin: 0 auto;
   max-width: 575px;
@@ -103,7 +116,6 @@ p {
 
 .header-bar {
   background-color: #262728;
-  box-sizing: border-box;
   color: #fff;
   min-height: 63px;
   position: fixed;
@@ -151,6 +163,7 @@ p {
     }
   }
 }
+
 .dropdown__menu {
   @include borderRadius(3px);
   background-color: #fff;
@@ -204,6 +217,7 @@ p {
     height: 425px; // For vertical centering of .billboard__create-message
   }
 }
+
 .billboard__create-message {
   @include borderRadius(3px);
   background-color: rgba($green, 0.7);
@@ -228,10 +242,47 @@ p {
      color: #fff;  
   }
 }
+
+.billboard__user {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-60%);
+
+  h2 {
+    color: #fff;
+    margin: {
+      top: 1.25rem;
+      bottom: 0;
+    }
+  }
+
+  p {
+    color: #fff;
+    margin: 0.5rem 0;
+    opacity: 0.75;
+  }
+
+  a {
+    color: #262728;
+
+    &:hover {
+      color: lighten(#262728, 20);
+    }
+  }
+
+  img {
+    @include borderRadius(4px);
+
+    max-width: 95px;
+  }
+}
+
 .billboard__tabs {
   bottom: 0;
   display: inline-block;
   position: absolute;
+
   a {
     color: #fff;
     cursor: pointer;
@@ -249,6 +300,11 @@ p {
       opacity: 1;
     }
   }
+
+  &.-user {
+    left: 50%;
+    transform: translateX(-45%);
+  }
 }
 
 
@@ -258,7 +314,6 @@ p {
 .post {
   @include borderRadius(4px);
   border: 1px solid #ddd;
-  box-sizing: border-box;
   margin: 1.5rem 0;
   //padding: 1.5rem;
 
@@ -272,13 +327,12 @@ p {
   }
 
   .content {
-    box-sizing: border-box;
     padding: 1.5rem;
   }
 }
+
 .post__body {
   @include column(92%);
-  box-sizing: border-box;
   padding-left: 1rem;
 
   h3 {
@@ -308,6 +362,7 @@ p {
     margin-left: 1.5rem;
   }
 }
+
 .post__img{
   -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0 0 4px 4px;
@@ -315,6 +370,66 @@ p {
   display: block;
   width: 100%;
 }
+
+
+
+/* Follower module */
+
+.follower {
+  border-top: 1px solid #ddd;
+  padding: 1.5rem 0;
+
+  &:first-child {
+    border: none;
+  }
+}
+
+.follower__photo {
+  @include column(10%);
+
+  img {
+    @include borderRadius(4px);
+    width: 100%;
+  }
+}
+.follower__info {
+  @include column(90%);
+  padding-left: 1rem;
+
+  h3 {
+    float: left;
+    margin: 0;
+  }
+
+  ul {
+    clear: left;
+    float: left;
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    font-size: 0.75rem;
+    list-style-type: none;
+    margin-right: 1rem;
+  }
+
+  .button {
+    float: right;
+    height: 30px;
+    margin-top: 12px;
+    width: 30px;
+    text-align: center;
+    padding: 0.5rem;
+
+    &.fa-check {
+      cursor: default;
+      background-color: #ddd;
+    }
+  }
+}
+
 
 
 
@@ -342,6 +457,22 @@ footer {
   &.-reply {
     background: url(../img/icon_reply.png) center top no-repeat;
     background-size: cover;
+  }
+}
+
+
+/* Buttons */
+
+a.button, .button {
+  @include borderRadius(4px);
+  background-color: $green;
+  color: #fff;
+  display: inline-block;
+  padding: 1rem;
+
+  &:hover {
+    background-color: lighten($green, 2);
+    color: #fff;
   }
 }
 

@@ -1,36 +1,37 @@
-<img ng-src="{{ user.photo }}">
-<h2>{{ user.name }}</h2>
-<p>{{ user.bio }}</p>
-<a href="http://{{ user.website }}">{{ user.website }}</a>
+<div class="billboard">
+  <div class="container">
 
-<nav>
-  <a href="/#/users/{{ user.username }}" ng-class="{ 'active': !currentTab }">Jessica's Feed</a>
-  <a href="/#/users/{{ user.username }}/followers" ng-class="{ 'active': currentTab === 'followers' }">{{ user.followers.length }} Followers</a>
-  <a href="/#/users/{{ user.username }}/following" ng-class="{ 'active': currentTab === 'following' }">{{ user.following.length }} Following</a>
-</nav>
+    <div class="billboard__user">
+      <img ng-src="{{ user.photo }}">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.bio }}</p>
+      <a href="http://{{ user.website }}">{{ user.website }}</a>
+    </div>
+   
+    <nav class="billboard__tabs -user">
+      <a href="/#/users/{{ user.username }}" ng-class="{ '-active': !currentTab }">Jessica's Feed</a>
+      <a href="/#/users/{{ user.username }}/followers" ng-class="{ '-active': currentTab === 'followers' }">{{ user.followers.length }} Followers</a>
+      <a href="/#/users/{{ user.username }}/following" ng-class="{ '-active': currentTab === 'following' }">{{ user.following.length }} Following</a>
+    </nav>
+  </div>
+</div>
 
-<div ng-show="!currentTab">
-  <h2>Feed</h2>
+
+<div ng-if="!currentTab" class="container -posts">
   <div class="post" ng-repeat="post in posts">
     <ng-include src="'/app/posts/templates/post.html'"></ng-include>
   </div> 
 </div>
 
-<div ng-show="currentTab === 'followers'">
-  <h2>Followers</h2>
-  <div class="user" ng-repeat="follower in followers">
-    <img ng-if="follower.photo" ng-src="{{ follower.photo }}">
-    <p>{{ follower.name }}</p>
-    <hr>
+<div ng-if="currentTab === 'followers'" class="container -posts">
+  <div class="follower" ng-repeat="user in followers">
+    <ng-include src="'/app/users/templates/follower.html'"></ng-include>
   </div> 
 </div>
 
-<div ng-show="currentTab === 'following'">
-  <h2>Following</h2>
-  <div class="user" ng-repeat="user in following">
-    <img ng-if="user.photo" ng-src="{{ user.photo }}">
-    <p>{{ user.name }}</p>
-    <hr>
+<div ng-if="currentTab === 'following'" class="container -posts">
+  <div class="follower" ng-repeat="user in following">
+   <ng-include src="'/app/users/templates/follower.html'"></ng-include>
   </div>
 </div> 
 
