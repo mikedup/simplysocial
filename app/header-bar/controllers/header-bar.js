@@ -4,7 +4,8 @@ angular.module('headerBar')
 
 .controller('HeaderBarCtrl', [
   '$scope',
-  function ($scope) {
+  'PostsService',
+  function ($scope, postsService) {
 
     $scope.user = {
       username: 'jessicatuan',
@@ -17,6 +18,15 @@ angular.module('headerBar')
     $scope.toggleModal = function () {
       $scope.modalVisible = !$scope.modalVisible;
     }
+
+    $scope.createPost = function(message) {
+      if (message) {
+        var newPost = postsService.create($scope.user, message);
+        $scope.$root.$broadcast('newPost');
+        $scope.toggleModal();
+        $scope.postMessage = '';
+      }
+    };
   }
 ]);
 
