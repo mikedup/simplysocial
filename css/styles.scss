@@ -806,8 +806,24 @@ form {
 footer {
   border-top: 1px solid #ddd;
   margin-top: 5rem;
-  padding-top: 2rem;
+  padding: 2rem 0;
   text-align: center;
+
+  a, p {
+    display: inline-block;
+    font-family: "Proxima Nova Semibold", sans-serif;
+    font-size: 0.75rem;
+    margin: 0 1rem;
+    text-transform: uppercase;
+  }
+
+  a, a:link, a:visited {
+    color: $green;
+
+    &:hover {
+      color: lighten($green, 20);
+    }
+  }
 }
 
 
