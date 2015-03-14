@@ -1,0 +1,13 @@
+<div class="modal" ng-show='modalVisible'>
+  <div class="modal__overlay" ng-click="toggleModal()"></div>
+  <div class="modal__content">
+    <div class="row">
+      <i class="close-modal fa fa-remove" ng-click="toggleModal()"></i>
+      <h2>Create new message</h2>
+      <textarea ng-model="postMessage"></textarea>
+      <a ng-click class="add-media -photo -modal">Add photo</a>
+      <a ng-click class="add-media -video -modal">Add video</a>
+      <a ng-click="toggleModal()" class="button">Post</a>
+    </div>
+  </div>
+</div>

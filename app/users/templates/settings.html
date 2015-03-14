@@ -1,34 +1,79 @@
-<h2>Settings</h2>
+<div class="container -settings">
+  <h2>Settings</h2>
 
-<form>
-  <fieldset>
-    <legend>Account</legend>
-    <div class="field">
-      <img ng-src="{{ user.photo }}">
-      <button ng-click="">Change</button>
-    </div>
-    <div class="field">
-      <label>Name</label>
-      <input type="text" name="name" ng-model="settings.name">
-    </div>
-    <div class="field">
-      <label>Email</label>
-      <input type="text" name="email" ng-model="settings.email">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="text" name="password" ng-model="settings.password">
-    </div>
-  </fieldset>
+  <form class="user-settings">
+    <fieldset class="row">
+      <legend>Account</legend>
+      <div class="user-photo">
+        <div class="field">
+          <img ng-src="{{ user.photo }}">
+          <a class="button -secondary" ng-click="">Change</a>
+        </div>
+      </div>
+      <div class="user-info">
+        <div class="field">
+          <input type="text" name="name" placeholder="{{ user.name }}" ng-model="settings.name">
+        </div>
+        <div class="field">
+          <input type="email" name="email" placeholder="{{ user.email }}" ng-model="settings.email">
+        </div>
+        <div class="field">
+          <input type="password" name="password" placeholder="•••••••••"ng-model="settings.password">
+        </div>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <legend>Notifications</legend>
-  </fieldset>
+    <fieldset>
+      <legend>Notifications</legend>
+      <div class="switch field">
+        <input type="checkbox" id="notify-favorites" class="switch" checked/>
+        <label class="switch-label" for="notify-favorites">email me when my posts are marked as favorites</label>
+      </div>
+      <div class="switch field">
+        <input type="checkbox" id="notify-mentioned" class="switch" checked />
+        <label class="switch-label" for="notify-mentioned">email me when I'm mentioned</label>
+      </div>
+      <div class="switch field">
+        <input type="checkbox" id="notify-reply" class="switch" checked />
+        <label class="switch-label" for="notify-reply">email me when I get a reply</label>
+      </div>
+      <div class="switch field">
+        <input type="checkbox" id="notify-follows" class="switch" />
+        <label class="switch-label" for="notify-follows">email me when someone follows me</label>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <legend>Privacy</legend>
-  </fieldset>
-</form>
+    <fieldset>
+      <legend>Privacy</legend>
+      <div class="radio field">
+        <input type="radio" id="tag-everyone" name="privacy-tag" value="everyone" checked />
+        <label for="tag-everyone" class="radio-label" >allow anyone to tag me</label>
+      </div>
+      <div class="radio field">
+        <input type="radio" id="tag-following" name="privacy-tag" value="only following" />
+        <label for="tag-following" class="radio-label">only allow people I follow to tag me</label>
+      </div>
+      <div class="radio field">
+        <input type="radio" id="tag-noone" name="privacy-tag" value="no one" />
+        <label for="tag-noone" class="radio-label" for="privacy-tag">don't allow anyone to tag me</label>
+      </div>
+      <br>
+      <div class="radio field">
+        <input type="radio" id="privacy-location" name="privacy-location" value="yes" checked />
+        <label for="privacy-location" class="radio-label" for="privacy-tag">add location to my posts</label>
+      </div>
+      <br>
+      <div class="radio field">
+        <input type="radio" id="privacy-findme" name="privacy-findme" value="yes" checked />
+        <label for="privacy-findme" class="radio-label" for="privacy-tag">let others find me by my email address</label>
+      </div>
+      <br>
+      <div class="radio field">
+        <input type="radio" id="privacy-ads" name="privacy-ads" value="yes" checked />
+        <label for="privacy-ads" class="radio-label" for="privacy-tag">tailor ads based on my location</label>
+      </div>
+    </fieldset>
 
-
-
+    <button ng-click="submit()">Save Changes</button>
+  </form>
+</div>

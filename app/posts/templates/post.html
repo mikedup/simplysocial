@@ -11,7 +11,7 @@
         <a class="icon -heart" ng-click>Like</a>
     </header>
     <p ng-bind-html="post.text"></p>
-    <p ng-if="isLikedByUser(post.id)">Liked</p>
+    <p ng-if="isLikedByUser(post.id)" class="post-liked">Liked</p>
   </div>
 </div>
 <img ng-if="post.photo" ng-src="{{ post.photo }}" class="post__img">
