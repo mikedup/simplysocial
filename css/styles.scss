@@ -59,7 +59,7 @@ $green: #1BB187;
 
 body {
   color: #6D7887;
-  font-family: "Proxima Nova Regular";
+  font-family: "Proxima Nova Regular", sans-serif;
   padding-top: 63px;
 }
 
@@ -83,6 +83,10 @@ a, a:link, a:visited {
   &:hover {
     color: lighten(#bec3cc, 8);
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 p {
@@ -105,7 +109,7 @@ p {
   max-width: 575px;
   width: 90%;
 
-  &.-posts {
+  &.-posts, &.-settings {
     margin-top: 3rem;
   }
 }
@@ -220,6 +224,7 @@ p {
 .dropdown__menu {
   @include borderRadius(3px);
   background-color: #fff;
+  box-shadow: 0 0 15px rgba(#000, 0.10);
   display: none;
   top: 90%;
   position: absolute;
@@ -548,6 +553,7 @@ p {
 
   .add-media {
     color: #6D7887;
+    cursor: pointer;
     float: left;
     margin: {
       top: 0.5rem;
@@ -585,11 +591,221 @@ p {
 
 
 
+/* User Settings module */
+
+.user-settings {
+  fieldset {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin-top: 2rem;
+    padding: 1rem 0 2rem 0;
+  }
+
+  legend {
+    font-family: "Proxima Nova Semibold", sans-serif;
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .user-photo {
+    @include column(15%);
+
+    img {
+      @include borderRadius(4px);
+      margin-bottom: 0.5rem;
+      width: 100%;
+    }
+
+    .button {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+      width: 100%;
+    }
+  }
+
+  .user-info {
+    @include column(85%);
+    padding-left: 3rem;
+  }
+
+  input {
+    padding-left: 45px;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 2rem;
+  }
+}
+
+
+
+/* Form styles */
+form {
+  input {
+    @include borderRadius(3px);
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+
+    &:focus {
+      border-color: $green;
+      box-shadow: 0 0 10px rgba($green, 0.15);
+      outline: none;
+    }
+
+    &[name="email"] {
+      background: url(../img/icon_email.png) 15px center no-repeat;
+      padding-left: 45px;
+    }
+
+    &[name="name"] {
+      background: url(../img/icon_user.png) 15px center no-repeat;
+      padding-left: 45px;
+    }
+
+    &[name="password"] {
+      background: url(../img/icon_lock.png) 15px center no-repeat;
+      padding-left: 45px;
+      position: relative;
+    }
+  }
+
+  .switch {
+    margin: 1.5rem 0;
+
+    input[type="checkbox"] {
+      margin-top: 2px;
+      position: absolute;
+
+      &:focus {
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+      }
+
+      &:checked + label::before {
+        background-color: $green;
+        border-color: $green;
+      }
+
+      &:checked + label::after {
+        border-color: $green;
+        left: 22px;
+      }
+    }
+
+    label {
+      padding: { 
+        top: 3px;
+        left: 65px;
+      }
+      cursor: pointer;
+      position: relative;
+
+      &::before {
+        @include borderRadius(30px);
+        background-color: #fff;
+        border: 1px solid #ddd;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 45px;
+        height: 23px;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+
+      &::after {
+        @include borderRadius(25px);
+        background-color: #fff;
+        border: 1px solid #ddd;
+        content: "";
+        display: block;
+        height: 23px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 23px;
+        -webkit-transition: all 0.3s;
+        transition: all 0.2s;
+      }
+    }
+  }
+
+  .radio {
+    margin: 1rem 0;
+
+    input[type="radio"] {
+      margin-top: 2px;
+      position: absolute;
+
+      &:focus {
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+      }
+
+       &:checked + label::after {
+        display: block;
+      }
+    }
+
+    label {
+      padding: { 
+        top: 3px;
+        left: 45px;
+      }
+      cursor: pointer;
+      position: relative;
+
+      &::before {
+        @include borderRadius(30px);
+        background-color: #fff;
+        border: 1px solid #ddd;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 22px;
+        height: 22px;
+      }
+
+      &::after {
+        @include borderRadius(25px);
+        background-color: $green;
+        content: "";
+        display: none;
+        height: 16px;
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        width: 16px;
+        -webkit-transition: all 0.3s;
+        transition: all 0.2s;
+      }
+    }
+
+  }
+
+  .field {
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+}
+
+
+
 /* Footer module */
 
 footer {
   border-top: 1px solid #ddd;
-  margin-top: 2rem;
+  margin-top: 5rem;
   padding-top: 2rem;
   text-align: center;
 }
@@ -615,34 +831,30 @@ footer {
 
 /* Buttons */
 
-a.button, .button {
+a.button, .button, button {
   @include borderRadius(4px);
   background-color: $green;
+  border: none;
   color: #fff;
   cursor: pointer;
   display: inline-block;
   padding: 0.75rem 1.5rem;
+  text-align: center;
 
   &:hover {
     background-color: lighten($green, 2);
     color: #fff;
   }
+
+  &.-secondary {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: lighten(#6D7887, 10);
+
+    &:hover {
+      background-color: transparent;
+      border-color: $green;
+      color: $green;
+    }
+  }
 }
-
-
-
-
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}

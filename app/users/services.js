@@ -13,6 +13,7 @@ angular.module('users')
         "username": "jessicatuan",
         "name": "Jessica Tuan",
         "photo": "img/user_tuan.jpg",
+        "email": "jessica@mail.com",
         "bio": "Designer and Developer living in San Diego, CA",
         "website": "jessicatuan.com",
         "followers": [
