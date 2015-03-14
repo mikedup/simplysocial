@@ -1,7 +1,13 @@
 <div class="billboard">
   <div class="container">
-    <div class="billboard__create-message">
-      <input placeholder="What's on your mind?">
+    <div class="billboard__create-message" ng-init="focusInput()">
+      <div class="row">
+        <input placeholder="What's on your mind?">
+      </div>
+      <div class="row">
+        <a ng-click class="add-media -photo">Add photo</a>
+        <a ng-click class="add-media -video">Add video</a>
+      </div>
     </div>
     <nav class="billboard__tabs">
       <a ng-click="filter = null" ng-class="{ '-active': filter === null }">All Posts</a>

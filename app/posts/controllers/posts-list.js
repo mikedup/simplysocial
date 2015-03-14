@@ -14,7 +14,6 @@ angular.module('posts')
       return post;
     });
 
-
     $scope.filter = null;
   }
 ]);

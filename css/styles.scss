@@ -44,8 +44,8 @@ $green: #1BB187;
   font-weight: normal;
 }
 @font-face {
-  font-family: "Proxima Nova Bold";
-  src: url('../fonts/ProximaNova-Bold.otf');
+  font-family: "Proxima Nova Light";
+  src: url('../fonts/ProximaNova-Light.otf');
   font-weight: normal;
 }
 
@@ -286,9 +286,19 @@ p {
   transform: translateY(-50%);
 
   input {
+    background: transparent;
     border: none;
     color: #fff;
-    background: transparent;
+    float: left;
+    font-family: "Proxima Nova Light", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.65;
+    padding: 1rem 0;
+
+     &:focus {
+      outline: none;
+    }
   }
   ::-webkit-input-placeholder {
     color: #fff;
@@ -434,6 +444,10 @@ p {
     float: right;
     margin-left: 1.5rem;
   }
+
+  .post-liked {
+    color: $green;
+  }
 }
 
 .post__img{
@@ -548,30 +562,6 @@ p {
 
     &:focus {
       outline: none;
-    }
-  }
-
-  .add-media {
-    color: #6D7887;
-    cursor: pointer;
-    float: left;
-    margin: {
-      top: 0.5rem;
-      right: 1.5rem;
-    }
-    padding-left: 30px;
-
-    &.-photo {
-      background: url(../img/icon_camera.png) left center no-repeat;
-    }
-
-    &.-video {
-      background: url(../img/icon_video.png) left center no-repeat;
-    }
-
-    @media only screen and (max-width: 480px) {
-      clear: left;
-      margin-top: 1rem;
     }
   }
 
@@ -872,5 +862,53 @@ a.button, .button, button {
       border-color: $green;
       color: $green;
     }
+  }
+}
+
+// Add media buttons
+.add-media {
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  margin: {
+    top: 0.5rem;
+    right: 1.5rem;
+  }
+  opacity: 0.65;
+  padding-left: 30px;
+
+  &:hover {
+    color: #fff;
+    opacity: 1;
+  }
+
+  &.-photo {
+    background: url(../img/icon_camera_white.png) left center no-repeat;
+  }
+
+  &.-video {
+    background: url(../img/icon_video_white.png) left center no-repeat;
+  }
+
+  &.-modal {
+    color: #6D7887;
+    opacity: 1;
+
+    &:hover {
+      color: #6D7887;
+    }
+
+    &.-photo {
+      background: url(../img/icon_camera.png) left center no-repeat;
+    }
+
+    &.-video {
+      background: url(../img/icon_video.png) left center no-repeat;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    clear: left;
+    margin-top: 1rem;
   }
 }
