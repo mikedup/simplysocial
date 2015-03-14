@@ -94,7 +94,7 @@ angular.module('posts')
       })[0];
 
       return post;
-    }
+    };
 
     service.collection = function (username) {
       // Mock api GET
@@ -107,7 +107,7 @@ angular.module('posts')
       }
 
       return posts;
-    }
+    };
 
     service.getLiked = function (username) {
       var likedPosts = posts.filter(function (post) {
@@ -115,7 +115,22 @@ angular.module('posts')
       });
 
       return likedPosts;
-    }
+    };
+
+
+    service.create = function(user, message) {
+      var post = {
+        id: Math.floor(Math.random() * 999999999).toString(),
+        username: user.username,
+        text: message,
+        posted_time: '1s',
+        likes: []
+      }
+
+      posts.unshift(post);
+
+      return post;
+    };
 
     service.resolvePosts = function (postIds) {
       var resolvedPosts = postIds.map(function (postId) {
@@ -123,7 +138,7 @@ angular.module('posts')
       }.bind(this));
 
       return resolvedPosts;
-    }
+    };
 
     return service;
     

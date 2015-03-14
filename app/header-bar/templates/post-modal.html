@@ -7,7 +7,7 @@
       <textarea ng-model="postMessage"></textarea>
       <a ng-click class="add-media -photo -modal">Add photo</a>
       <a ng-click class="add-media -video -modal">Add video</a>
-      <a ng-click="toggleModal()" class="button">Post</a>
+      <a ng-click="createPost(postMessage)" ng-disabled="!postMessage" class="button">Post</a>
     </div>
   </div>
 </div>
